@@ -8,7 +8,7 @@ console.log(formRef)
 innitPage()
 function onFormInput(e) {
     const {name,value} = e.target;
-    console.log('asd')
+    
 try {
     let saveData = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (saveData) {
@@ -35,7 +35,7 @@ function innitPage() {
             const parseData = JSON.parse(saveData);
             Object.entries(parseData).forEach(([name,value]) =>{
                 console.log(name)
-                console.log(value )
+                console.log(value)
                 formRef.elements[name].value = value
 
             })
@@ -46,3 +46,11 @@ function innitPage() {
     }
 }
 
+const handleSubmit = e =>{
+    e.preventDefault()
+    const {elements:{email,message}} = e.currentTarget;
+    
+    e.currentTarget.reset();
+    localStorage.removeItem(LOCAL_STORAGE_KEY)
+}
+formRef.addEventListener('submit',handleSubmit);
