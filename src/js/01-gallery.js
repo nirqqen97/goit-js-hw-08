@@ -20,14 +20,6 @@ refs.galleryRef.insertAdjacentHTML("afterbegin",gallyryMarkUp)
 .join('');
 }
 // ------------------------------------------------------1------------------------------------
-refs.galleryRef.addEventListener('click',onImageClick)
-function onImageClick(evt) {
-    evt.preventDefault()
-    if (evt.target.nodeName !== "IMG") {
-        return
-    }
-    console.log(evt.target.nodeName)
-}
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData:'alt',
     captionDelay: 250
